@@ -11,9 +11,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-
-
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => $"Environment: {app.Environment.EnvironmentName}");
 
 app.MapGet("/data", () => Results.Json(new { 
     firstName = "John",
