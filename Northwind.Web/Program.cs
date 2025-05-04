@@ -1,6 +1,18 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+#region Configure the HTTP request pipeline and routes
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+
+
 app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/data", () => Results.Json(new { 
@@ -26,7 +38,7 @@ app.MapGet("/welcome", () => Results.Content(
     """,
     contentType: "text/html"
 ));
-
+#endregion
 
 app.Run();
 WriteLine("The server has stopped.");
