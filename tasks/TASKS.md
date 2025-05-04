@@ -17,8 +17,8 @@
   - [ ] Test data access
 
 ### Web Application
-- [ ] Create Blazor Web App (Server-Side)
-  - [ ] Use New-DotNetProject.ps1 script
+- [X] Create Web App
+  - [X] Use New-DotNetProject.ps1 script
   - [ ] Configure app settings
   - [ ] Setup basic project structure
 - [ ] Setup Basic Infrastructure
