@@ -2,12 +2,14 @@
 
 ## Current Steps
 - [] Initial project setup
-  - [x] Setup git
-  - [x] Setup Central Package Management
-- [ ] Setup Example Northwind DB, p. 633
-- [ ] Setup Entity Model
-- [] Create a new Blazor project
-- [] 
+  - [X] Setup git
+  - [X] Setup Central Package Management
+- [X] Add project with Entity Models for Sqlite
+- [🟡] Setup Example Northwind DB, p. 633,634
+- [🟡] Setup Entity Model
+
+- [ ] Create a new Blazor project
+- [ ]
 - [ ]
 - [ ]
 - [ ]
