@@ -8,6 +8,8 @@
   - [X] Setup Central Package Management
   - [X] Create PowerShell script for project creation
 - [X] Add project with Entity Models for Sqlite
+- [X] Create Web App
+  - [X] Use New-DotNetProject.ps1 script
 
 ### Database Setup
 - [🟡] Setup Example Northwind DB, p. 633,634
@@ -16,26 +18,39 @@
   - [ ] Add necessary model configurations
   - [ ] Test data access
 
-### Web Application
-- [X] Create Web App
-  - [X] Use New-DotNetProject.ps1 script
-  - [ ] Configure app settings
-  - [ ] Setup basic project structure
-- [ ] Setup Basic Infrastructure
+### Web Application Configuration
+- [X] Basic Project Setup
+  - [ ] Configure app settings (appsettings.json)
+  - [ ] Setup environment-specific configurations
+  - [ ] Configure HTTPS
+- [ ] Setup Infrastructure
   - [ ] Configure dependency injection
   - [ ] Setup logging
   - [ ] Configure error handling
+  - [ ] Add DB Context registration
 - [ ] Create Basic UI Components
   - [ ] Layout template
   - [ ] Navigation menu
   - [ ] Error pages
+  - [ ] Loading states
 
 ## Backlog
 - [ ] Add Authentication/Authorization
 - [ ] Implement CRUD operations
+  - [ ] List view components
+  - [ ] Detail view components
+  - [ ] Edit forms
+  - [ ] Delete confirmations
 - [ ] Add Unit Tests
+  - [ ] Service layer tests
+  - [ ] Component tests
 - [ ] Add Integration Tests
+  - [ ] API endpoint tests
+  - [ ] DB integration tests
 - [ ] Setup CI/CD Pipeline
+  - [ ] Build automation
+  - [ ] Test automation
+  - [ ] Deployment scripts
 
 ## Completed
 - [X] Create PowerShell script (scripts/New-DotNetProject.ps1)
@@ -46,6 +61,7 @@
     - Optional solution-level package restore
     - Configurable .NET version, HTTPS, Docker support
     - Documentation and error handling
+- [X] Create initial web application using script
 
 ## Task Status Legend
 - 🔴 Not Started
