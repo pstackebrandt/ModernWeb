@@ -1,0 +1,35 @@
+### Test HTTP root (should serve index.html)
+GET http://localhost:5130/
+
+### Test HTTPS root (should serve index.html)
+GET https://localhost:5131/
+
+### Test HTTP welcome endpoint
+GET http://localhost:5130/welcome
+
+### Test HTTPS welcome endpoint
+GET https://localhost:5131/welcome
+
+### Test HTTP data endpoint
+GET http://localhost:5130/data
+
+### Test HTTPS data endpoint
+GET https://localhost:5131/data
+
+### Test HTTP environment info
+GET http://localhost:5130/env
+
+### Test HTTPS environment info
+GET https://localhost:5131/env
+
+### Test HTTP about page
+GET http://localhost:5130/about.html
+
+### Test HTTPS about page
+GET https://localhost:5131/about.html
+
+### Test HTTP CSS file
+GET http://localhost:5130/site.css
+
+### Test HTTPS CSS file
+GET https://localhost:5131/site.css 

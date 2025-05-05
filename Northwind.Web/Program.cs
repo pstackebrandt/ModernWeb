@@ -9,9 +9,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
-app.MapGet("/", () => $"Environment: {app.Environment.EnvironmentName}");
+// Configure static files with proper order
+app.UseDefaultFiles(); // index.html, default.html, etc.
+app.UseStaticFiles(); // Required even with MapStaticAssets for proper static file handling
+app.MapStaticAssets(); // .NET 9 feature for compression
+
+app.MapGet("/env", () => $"Environment: {app.Environment.EnvironmentName}");
 
 app.MapGet("/data", () => Results.Json(new { 
     firstName = "John",
