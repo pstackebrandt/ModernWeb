@@ -1,35 +1,35 @@
-### Test HTTP root in REST Client
+### Test root page (HTTP)
 GET http://localhost:5130/
 
-### Test HTTPS root in REST Client
+### Test root page (HTTPS)
 GET https://localhost:5131/
 
-### Test HTTP welcome endpoint
+### Test welcome page (HTTP)
 GET http://localhost:5130/welcome
 
-### Test HTTPS welcome endpoint
+### Test welcome page (HTTPS)
 GET https://localhost:5131/welcome
 
-### Test HTTP data endpoint
+### Test data endpoint (HTTP)
 GET http://localhost:5130/data
 
-### Test HTTPS data endpoint
+### Test data endpoint (HTTPS)
 GET https://localhost:5131/data
 
-### Test HTTP environment info
+### Test environment info (HTTP)
 GET http://localhost:5130/env
 
-### Test HTTPS environment info
+### Test environment info (HTTPS)
 GET https://localhost:5131/env
 
-### Test HTTP about page
+### Test about page (HTTP)
 GET http://localhost:5130/about.html
 
-### Test HTTPS about page
+### Test about page (HTTPS)
 GET https://localhost:5131/about.html
 
-### Test HTTP CSS file
+### Test CSS file (HTTP)
 GET http://localhost:5130/site.css
 
-### Test HTTPS CSS file
+### Test CSS file (HTTPS)
 GET https://localhost:5131/site.css 
