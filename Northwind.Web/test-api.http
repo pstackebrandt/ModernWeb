@@ -1,7 +1,7 @@
-### Test HTTP root (should serve index.html)
+### Test HTTP root in REST Client
 GET http://localhost:5130/
 
-### Test HTTPS root (should serve index.html)
+### Test HTTPS root in REST Client
 GET https://localhost:5131/
 
 ### Test HTTP welcome endpoint
