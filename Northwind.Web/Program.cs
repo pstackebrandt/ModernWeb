@@ -1,4 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorComponents(); // Seems to be required for UseHttpsRedirection
+
 var app = builder.Build();
 
 #region Configure the HTTP request pipeline and routes
@@ -8,6 +11,7 @@ if (app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Enable HTTPS redirection
 app.UseHttpsRedirection();
 
 // Configure static files with proper order
