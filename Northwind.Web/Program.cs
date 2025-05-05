@@ -1,10 +1,12 @@
+using Northwind.Web.Components; // To use App.
+
+#region Configure the web server host and services.
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorComponents(); // Seems to be required for UseHttpsRedirection
+builder.Services.AddRazorComponents(); // Alsoequired for UseHttpsRedirection
 
 var app = builder.Build();
-
-#region Configure the HTTP request pipeline and routes
 
 if (app.Environment.IsDevelopment())
 {
@@ -14,11 +16,18 @@ if (app.Environment.IsDevelopment())
 // Enable HTTPS redirection
 app.UseHttpsRedirection();
 
+app.UseAntiforgery();
+
 // Configure static files with proper order
 app.UseDefaultFiles(); // index.html, default.html, etc.
 app.UseStaticFiles(); // Required even with MapStaticAssets for proper static file handling
-app.MapStaticAssets(); // .NET 9 feature for compression
+app.MapStaticAssets(); // .NET 9 feature for compression (has a dependency on Razor components)
 
+app.MapRazorComponents<App>();
+
+#endregion
+
+#region Configure the routes and endpoints.
 app.MapGet("/env", () => $"Environment: {app.Environment.EnvironmentName}");
 
 app.MapGet("/data", () => Results.Json(new { 
@@ -45,6 +54,5 @@ app.MapGet("/welcome", () => Results.Content(
     contentType: "text/html"
 ));
 #endregion
-
 app.Run();
 WriteLine("The server has stopped.");

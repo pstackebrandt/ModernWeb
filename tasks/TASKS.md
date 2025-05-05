@@ -10,6 +10,7 @@
 - [X] Add project with Entity Models for Sqlite
 - [X] Create Web App
   - [X] Use New-DotNetProject.ps1 script
+  - [X] Implement Blazor Static SSR
 
 ### Database Setup
 - [🟡] Setup Example Northwind DB, p. 633,634
@@ -22,13 +23,17 @@
 - [X] Basic Project Setup
   - [ ] Configure app settings (appsettings.json)
   - [ ] Setup environment-specific configurations
-  - [ ] Configure HTTPS
+  - [X] Configure HTTPS
+    - [X] Setup redirection from HTTP to HTTPS
+    - [X] Configure development certificates
+    - [X] Test with REST Client
 - [ ] Setup Infrastructure
   - [ ] Configure dependency injection
   - [ ] Setup logging
   - [ ] Configure error handling
   - [ ] Add DB Context registration
-- [ ] Create Basic UI Components
+- [🟡] Create Basic UI Components
+  - [X] Initial Blazor SSR setup
   - [ ] Layout template
   - [ ] Navigation menu
   - [ ] Error pages
@@ -51,6 +56,11 @@
   - [ ] Build automation
   - [ ] Test automation
   - [ ] Deployment scripts
+- [ ] Enhance Blazor Implementation
+  - [ ] Add interactive components
+  - [ ] Implement client-side functionality
+  - [ ] Optimize SSR performance
+  - [ ] Add progressive enhancement
 
 ## Completed
 - [X] Create PowerShell script (scripts/New-DotNetProject.ps1)
@@ -62,6 +72,14 @@
     - Configurable .NET version, HTTPS, Docker support
     - Documentation and error handling
 - [X] Create initial web application using script
+- [X] Configure HTTPS and test with REST Client
+  - Setup proper redirection from HTTP to HTTPS
+  - Configure development certificates
+  - Create test suite in test-api.http
+- [X] Implement Blazor Static SSR
+  - Setup initial Blazor configuration
+  - Configure static server-side rendering
+  - Test basic page rendering
 
 ## Task Status Legend
 - 🔴 Not Started
