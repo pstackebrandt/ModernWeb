@@ -6,43 +6,23 @@ This doesn't work well, but for now I update the file seldom manually. I want to
 
 ## Current Steps
 
-### Infrastructure Setup
-- [X] Initial project setup
-  - [X] Setup git
-  - [X] Setup Central Package Management
-  - [X] Create PowerShell script for project creation
-- [X] Add project with Entity Models for Sqlite
-- [X] Create Web App
-  - [X] Use New-DotNetProject.ps1 script
-  - [X] Implement Blazor Static SSR
-
 ### Database Setup
 - [🟡] Setup Example Northwind DB, p. 633,634
 - [🟡] Setup Entity Model
   - [ ] Verify Entity Models against DB schema
   - [ ] Add necessary model configurations
   - [ ] Test data access
-  - [ ] Move connection string to configuration (Recommended)
+  - [ ] Move connection string to configuration
 
 ### Web Application Configuration
-- [X] Basic Project Setup
-  - [🟢] Configure app settings (appsettings.json)
-  - [🟢] Setup environment-specific configurations
-  - [X] Configure HTTPS
-    - [X] Setup redirection from HTTP to HTTPS
-    - [X] Configure development certificates
-    - [X] Test with REST Client
 - [🟡] Setup Infrastructure
   - [🟡] Configure dependency injection
   - [ ] Setup logging
-  - [ ] Configure error handling (Recommended)
-  - [ ] Add DB Context registration (Recommended)
+  - [ ] Configure error handling
+  - [ ] Add DB Context registration
 - [🟡] Create Basic UI Components
-  - [X] Initial Blazor SSR setup
-  - [X] Layout template
-  - [X] Navigation menu
-  - [ ] Error pages (Not found)
-  - [ ] Loading states (Not found)
+  - [ ] Error pages
+  - [ ] Loading states
 
 ## Backlog
 - [ ] Add Authentication/Authorization
@@ -51,7 +31,7 @@ This doesn't work well, but for now I update the file seldom manually. I want to
   - [ ] Detail view components
   - [ ] Edit forms
   - [ ] Delete confirmations
-- [ ] Add Unit Tests (Recommended to start)
+- [ ] Add Unit Tests
   - [ ] Service layer tests
   - [ ] Component tests
 - [ ] Add Integration Tests
@@ -68,29 +48,21 @@ This doesn't work well, but for now I update the file seldom manually. I want to
   - [ ] Add progressive enhancement
 
 ## Completed
-- [X] Create PowerShell script (scripts/New-DotNetProject.ps1)
-  - Supports creating new .NET projects
-  - Integrates with solution and CPM
-  - Features:
-    - WhatIf support for preview
-    - Optional solution-level package restore
-    - Configurable .NET version, HTTPS, Docker support
-    - Documentation and error handling
-- [X] Create initial web application using script
-- [X] Configure HTTPS and test with REST Client
-  - Setup proper redirection from HTTP to HTTPS
-  - Configure development certificates
-  - Create test suite in test-api.http
-- [X] Implement Blazor Static SSR
-  - Setup initial Blazor configuration
-  - Configure static server-side rendering
-  - Test basic page rendering
-- [X] Layout template (MainLayout.razor)
-- [X] Navigation menu (NavMenu.razor)
-- [X] Configure app settings with environment-specific configurations
-  - Added appsettings.json and appsettings.Development.json
-  - Created example configuration files for reference
-  - Implemented environment-specific settings structure
+- [X] Infrastructure Setup
+  - [X] Initial project setup (git, CPM)
+  - [X] Create PowerShell scripts for project creation
+    - WhatIf support, package restore, configurable options
+  - [X] Add project with Entity Models for Sqlite
+- [X] Web Application Setup
+  - [X] Create initial web application using script
+  - [X] Configure app settings
+    - Environment-specific configurations
+    - Example configuration files
+  - [X] Configure HTTPS with test suite
+  - [X] Implement Blazor Static SSR
+  - [X] Basic UI Components
+    - Layout template (MainLayout.razor)
+    - Navigation menu (NavMenu.razor)
 
 ## Task Status Legend
 - 🔴 Not Started
@@ -103,8 +75,3 @@ This doesn't work well, but for now I update the file seldom manually. I want to
 - Add new tasks as they are identified
 - Move completed tasks to the Completed section
 - Include relevant issue numbers or references
-- Recommendations:
-  - Move DB connection string to configuration files
-  - Add error and loading state components/pages
-  - Register DB context and add error handling in web app startup
-  - Add at least a basic test project to start unit/integration testing
