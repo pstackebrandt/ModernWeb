@@ -7,6 +7,10 @@ This doesn't work well, but for now I update the file seldom manually. I want to
 ## Current Steps
 - [🟡] Setup project Northwind.DataContext.Sqlite
 
+## Next Steps
+- [ ] Add NorthwindDatabase Context
+- [ ] Add NorthwindDatabase Context Logger
+- [ ] Customize Northwind Model
 ### Database Setup
 - [🟡] Setup Example Northwind DB, p. 633,634
 - [🟡] Setup Entity Model

@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.EntityModels.Sqlite\Northwind.EntityModels.Sqlite.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Label="Versions are set at solution level">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Console" static="true" />
+  </ItemGroup>
+
 </Project>
