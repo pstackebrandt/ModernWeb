@@ -32,8 +32,49 @@ public partial class NorthwindContext : DbContext
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlite("Data Source=../Northwind.db");
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            string database = "Northwind.db";
+            string dir = Environment.CurrentDirectory;
+            string path = string.Empty;
+
+            // Determine the path to the database file.
+            if (dir.EndsWith("net9.0"))
+            {
+                // In the <project>\bin\<Debug|Release>\net9.0 directory. (Visual Studio)
+                path = Path.Combine("..", "..", "..", "..", database);
+            }
+            else
+            {
+                // In the <project> directory. (CLI, VSC)
+                path = Path.Combine("..", database);
+            }
+
+            path = Path.GetFullPath(path); // Convert to absolute path.
+            try
+            {
+                NorthwindContextLogger.WriteLine($"Database path: {path}");
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+            }
+
+            if (!File.Exists(path))
+            {
+                // Suppresss automatic creation of empty database if expecteddb not found.
+                throw new FileNotFoundException(
+                  message: $"{path} not found.", fileName: path);
+            }
+
+            optionsBuilder.UseSqlite($"Data Source={path}");
+
+            optionsBuilder.LogTo(NorthwindContextLogger.WriteLine,
+              new[] { Microsoft.EntityFrameworkCore
+        .Diagnostics.RelationalEventId.CommandExecuting });
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
