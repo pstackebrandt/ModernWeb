@@ -5,6 +5,7 @@ I try to update it automatically using cursor without specific instructions.
 This doesn't work well, but for now I update the file seldom manually. I want to see where the automation fails or succeeds.
 
 ## Current Steps
+- [🟡] Setup project Northwind.DataContext.Sqlite
 
 ### Database Setup
 - [🟡] Setup Example Northwind DB, p. 633,634
