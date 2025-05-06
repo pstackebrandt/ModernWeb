@@ -281,6 +281,10 @@ ServiceFabricBackup/
 *.sqlite
 *.sqlite3
 
+# Do not ignore projects folders with name part Sqlite
+!*.DataContext.Sqlite
+!*.EntityModels.Sqlite
+
 # SQLite database auxiliary files
 *.db-shm
 *.db-wal
