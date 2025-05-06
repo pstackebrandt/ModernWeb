@@ -1,0 +1,27 @@
+﻿@page "/suppliers"
+@code {
+  public IEnumerable<string>? Companies { get; set; }
+    = new List<string> { "Alpha Co", "Beta Limited", "Gamma Corp" };
+}
+
+<div class="row">
+  <h1 class="display-2">Suppliers</h1>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Company Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (Companies is not null)
+      {
+        @foreach (string name in Companies)
+        {
+          <tr>
+            <td>@name</td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>
