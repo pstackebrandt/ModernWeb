@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.EntityModels.Sqli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Web", "Northwind.Web\Northwind.Web.csproj", "{AEE1600E-A9AE-448B-AAF7-02A47095A01B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.DataContext.Sqlite", "Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj", "{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{AEE1600E-A9AE-448B-AAF7-02A47095A01B}.Release|x64.Build.0 = Release|Any CPU
 		{AEE1600E-A9AE-448B-AAF7-02A47095A01B}.Release|x86.ActiveCfg = Release|Any CPU
 		{AEE1600E-A9AE-448B-AAF7-02A47095A01B}.Release|x86.Build.0 = Release|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Debug|x64.Build.0 = Debug|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Debug|x86.Build.0 = Debug|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Release|x64.Build.0 = Release|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{DC9B16E7-A58E-4AA1-AEE8-08BCDD6D68E6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
