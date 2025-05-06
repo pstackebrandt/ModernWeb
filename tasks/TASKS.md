@@ -18,6 +18,7 @@
   - [ ] Verify Entity Models against DB schema
   - [ ] Add necessary model configurations
   - [ ] Test data access
+  - [ ] Move connection string to configuration (Recommended)
 
 ### Web Application Configuration
 - [X] Basic Project Setup
@@ -30,14 +31,14 @@
 - [ ] Setup Infrastructure
   - [ ] Configure dependency injection
   - [ ] Setup logging
-  - [ ] Configure error handling
-  - [ ] Add DB Context registration
+  - [ ] Configure error handling (Recommended)
+  - [ ] Add DB Context registration (Recommended)
 - [🟡] Create Basic UI Components
   - [X] Initial Blazor SSR setup
-  - [ ] Layout template
-  - [ ] Navigation menu
-  - [ ] Error pages
-  - [ ] Loading states
+  - [X] Layout template
+  - [X] Navigation menu
+  - [ ] Error pages (Not found)
+  - [ ] Loading states (Not found)
 
 ## Backlog
 - [ ] Add Authentication/Authorization
@@ -46,7 +47,7 @@
   - [ ] Detail view components
   - [ ] Edit forms
   - [ ] Delete confirmations
-- [ ] Add Unit Tests
+- [ ] Add Unit Tests (Recommended to start)
   - [ ] Service layer tests
   - [ ] Component tests
 - [ ] Add Integration Tests
@@ -80,6 +81,8 @@
   - Setup initial Blazor configuration
   - Configure static server-side rendering
   - Test basic page rendering
+- [X] Layout template (MainLayout.razor)
+- [X] Navigation menu (NavMenu.razor)
 
 ## Task Status Legend
 - 🔴 Not Started
@@ -92,3 +95,8 @@
 - Add new tasks as they are identified
 - Move completed tasks to the Completed section
 - Include relevant issue numbers or references
+- Recommendations:
+  - Move DB connection string to configuration files
+  - Add error and loading state components/pages
+  - Register DB context and add error handling in web app startup
+  - Add at least a basic test project to start unit/integration testing
