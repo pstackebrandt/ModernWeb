@@ -1,5 +1,9 @@
 # Project Tasks
 
+This file is a task list for the project.
+I try to update it automatically using cursor without specific instructions.
+This doesn't work well, but for now I update the file seldom manually. I want to see where the automation fails or succeeds.
+
 ## Current Steps
 
 ### Infrastructure Setup
@@ -22,14 +26,14 @@
 
 ### Web Application Configuration
 - [X] Basic Project Setup
-  - [ ] Configure app settings (appsettings.json)
-  - [ ] Setup environment-specific configurations
+  - [🟢] Configure app settings (appsettings.json)
+  - [🟢] Setup environment-specific configurations
   - [X] Configure HTTPS
     - [X] Setup redirection from HTTP to HTTPS
     - [X] Configure development certificates
     - [X] Test with REST Client
-- [ ] Setup Infrastructure
-  - [ ] Configure dependency injection
+- [🟡] Setup Infrastructure
+  - [🟡] Configure dependency injection
   - [ ] Setup logging
   - [ ] Configure error handling (Recommended)
   - [ ] Add DB Context registration (Recommended)
@@ -83,6 +87,10 @@
   - Test basic page rendering
 - [X] Layout template (MainLayout.razor)
 - [X] Navigation menu (NavMenu.razor)
+- [X] Configure app settings with environment-specific configurations
+  - Added appsettings.json and appsettings.Development.json
+  - Created example configuration files for reference
+  - Implemented environment-specific settings structure
 
 ## Task Status Legend
 - 🔴 Not Started
