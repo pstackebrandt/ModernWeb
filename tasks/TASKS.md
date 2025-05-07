@@ -6,16 +6,24 @@ This doesn't work well, but for now I update the file from time to time manually
 I want to see where the automation fails or succeeds.
 
 ## Current Steps
-- [ ] Customize Northwind Model
-
-## Next Steps
-
-### Web Application Configuration
 - [🟡] Create Basic UI Components
   - [ ] Error pages
   - [ ] Loading states
   - [ ] Data display components
   - [ ] Form components
+
+## Next Steps
+
+### Web Application Configuration
+- [ ] Implement Authentication & Authorization
+  - [ ] User management
+  - [ ] Role-based access control
+  - [ ] Secure API endpoints
+
+- [ ] Add API Documentation
+  - [ ] Swagger/OpenAPI integration
+  - [ ] API versioning
+  - [ ] Documentation generation
 
 ## Backlog
 - [ ] Enhance Blazor Implementation
@@ -49,6 +57,8 @@ I want to see where the automation fails or succeeds.
 - [X] Add and Setup project with Northwind DataContext for Sqlite
 - [X] Setup Example Northwind DB, p. 633,634
 - [X] Setup Entity Model
+- [X] Customize Northwind Model, OnModelCreating(), remove ValueGeneratedNever() calls, fix data types p. 639
+- [X] Add NorthwindContextExtensions, adds db context to service collection, p. 640
 
 ## Task Status Legend
 - [ ] Not Started
@@ -58,5 +68,6 @@ I want to see where the automation fails or succeeds.
 
 ## Notes
 - Update this file as tasks progress
-- Move completed tasks to the Completed section, sort them by subject/area.
+- Move completed tasks to the Completed section, sort them by subject/area
 - Include relevant issue numbers or references
+- Consider adding estimated effort/complexity for each task

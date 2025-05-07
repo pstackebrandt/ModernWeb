@@ -76,22 +76,20 @@ public partial class NorthwindContext : DbContext
         }
     }
 
+    /// <summary>
+    /// Configures the database model and its relationships when the model is being created.
+    /// Sets up entity configurations, default values, and relationship behaviors.
+    /// </summary>
+    /// <param name="modelBuilder">The builder being used to construct the model.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Category>(entity =>
-        {
-            entity.Property(e => e.CategoryId).ValueGeneratedNever();
-        });
-
-        modelBuilder.Entity<Employee>(entity =>
-        {
-            entity.Property(e => e.EmployeeId).ValueGeneratedNever();
-        });
+        // Removed a couple of ValueGeneratedNever() calls, p. 639
+        // To allow to set keys manually, p. 639
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.Property(e => e.OrderId).ValueGeneratedNever();
-            entity.Property(e => e.Freight).HasDefaultValue(0.0);
+            // Freight set to decimal, not a double, p. 639
+            entity.Property(e => e.Freight).HasDefaultValue(0.0M);
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -105,21 +103,13 @@ public partial class NorthwindContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.Property(e => e.ProductId).ValueGeneratedNever();
             entity.Property(e => e.ReorderLevel).HasDefaultValue((short)0);
-            entity.Property(e => e.UnitPrice).HasDefaultValue(0.0);
+            // UnitPrice set to decimal, not a double, p. 639
+            entity.Property(e => e.UnitPrice).HasDefaultValue(0.0M);
+            // Conversion added, p. 639
+            entity.Property(e => e.UnitPrice).HasConversion<double>();
             entity.Property(e => e.UnitsInStock).HasDefaultValue((short)0);
             entity.Property(e => e.UnitsOnOrder).HasDefaultValue((short)0);
-        });
-
-        modelBuilder.Entity<Shipper>(entity =>
-        {
-            entity.Property(e => e.ShipperId).ValueGeneratedNever();
-        });
-
-        modelBuilder.Entity<Supplier>(entity =>
-        {
-            entity.Property(e => e.SupplierId).ValueGeneratedNever();
         });
 
         OnModelCreatingPartial(modelBuilder);
