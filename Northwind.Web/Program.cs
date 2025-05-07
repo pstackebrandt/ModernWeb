@@ -1,10 +1,12 @@
 using Northwind.Web.Components; // To use App.
+using Northwind.EntityModels; // To use AddNorthwindContext()
 
 #region Configure the web server host and services.
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorComponents(); // Alsoequired for UseHttpsRedirection
+builder.Services.AddNorthwindContext();
 
 var app = builder.Build();
 

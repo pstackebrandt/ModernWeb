@@ -61,10 +61,8 @@ I want to see where the automation fails or succeeds.
   - [X] further model improvements, p. 645, 646
 
 ## Use Northwind DB in Web Application
-- [🟡] Reference DB Context in Web Application
-- [ ] Add NorthwindContext to service collection
-- [ ] Add NorthwindContext to MainLayout.razor
-- [ ] Add NorthwindContext to NavMenu.razor
+- [X] Reference DB Context in Web Application
+- [X] Show Suppliers from DB in Web Application
 
 ## Task Status Legend
 - [ ] Not Started
