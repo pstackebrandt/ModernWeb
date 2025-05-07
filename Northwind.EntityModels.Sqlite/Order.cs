@@ -39,7 +39,7 @@ public partial class Order
     public int? ShipVia { get; set; }
 
     [Column(TypeName = "money")]
-    public double? Freight { get; set; }
+    public decimal? Freight { get; set; }
 
     [Column(TypeName = "nvarchar (40)")]
     [StringLength(40)]
