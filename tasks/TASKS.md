@@ -6,11 +6,9 @@ This doesn't work well, but for now I update the file from time to time manually
 I want to see where the automation fails or succeeds.
 
 ## Current Steps
-- [🟡] Create Basic UI Components
-  - [ ] Error pages
-  - [ ] Loading states
-  - [ ] Data display components
-  - [ ] Form components
+- [ ] Improve Northwind Model, p. 644
+  - [X] string length attributes (using replace tool with regex)
+  - [ ] further model improvements, p. 645, 646
 
 ## Next Steps
 

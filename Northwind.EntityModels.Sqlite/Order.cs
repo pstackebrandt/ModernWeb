@@ -20,6 +20,7 @@ public partial class Order
     public int OrderId { get; set; }
 
     [Column(TypeName = "nchar (5)")]
+    [StringLength(5)]
     public string? CustomerId { get; set; }
 
     [Column(TypeName = "INT")]
@@ -41,21 +42,27 @@ public partial class Order
     public double? Freight { get; set; }
 
     [Column(TypeName = "nvarchar (40)")]
+    [StringLength(40)]
     public string? ShipName { get; set; }
 
     [Column(TypeName = "nvarchar (60)")]
+    [StringLength(60)]
     public string? ShipAddress { get; set; }
 
     [Column(TypeName = "nvarchar (15)")]
+    [StringLength(15)]
     public string? ShipCity { get; set; }
 
     [Column(TypeName = "nvarchar (15)")]
+    [StringLength(15)]
     public string? ShipRegion { get; set; }
 
     [Column(TypeName = "nvarchar (10)")]
+    [StringLength(10)]
     public string? ShipPostalCode { get; set; }
 
     [Column(TypeName = "nvarchar (15)")]
+    [StringLength(15)]
     public string? ShipCountry { get; set; }
 
     [ForeignKey("CustomerId")]
