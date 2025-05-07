@@ -27,13 +27,13 @@ public partial class Order
     public int? EmployeeId { get; set; }
 
     [Column(TypeName = "datetime")]
-    public string? OrderDate { get; set; }
+    public DateTime? OrderDate { get; set; }
 
     [Column(TypeName = "datetime")]
-    public string? RequiredDate { get; set; }
+    public DateTime? RequiredDate { get; set; }
 
     [Column(TypeName = "datetime")]
-    public string? ShippedDate { get; set; }
+    public DateTime? ShippedDate { get; set; }
 
     [Column(TypeName = "INT")]
     public int? ShipVia { get; set; }

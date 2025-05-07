@@ -30,10 +30,10 @@ public partial class Employee
     public string? TitleOfCourtesy { get; set; }
 
     [Column(TypeName = "datetime")]
-    public string? BirthDate { get; set; }
+    public DateTime? BirthDate { get; set; }
 
     [Column(TypeName = "datetime")]
-    public string? HireDate { get; set; }
+    public DateTime? HireDate { get; set; }
 
     [Column(TypeName = "nvarchar (60)")]
     [StringLength(60)]
