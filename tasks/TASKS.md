@@ -63,6 +63,10 @@ I want to see where the automation fails or succeeds.
 ## Use Northwind DB in Web Application
 - [X] Reference DB Context in Web Application
 - [X] Show Suppliers from DB in Web Application
+- [X] Add link to Suppliers page in Index.razor (It looks like Price did forget it.)
+- [ ] Add razor page that shows customers grouped by country (Exercise 13.2, p. 693 f.)
+  - [ ] When user clicks on customer record, they should see a page showing the full contact details of the customer
+    - [ ] and a list of orders for that customer
 
 ## Task Status Legend
 - [ ] Not Started
