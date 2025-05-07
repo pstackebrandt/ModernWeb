@@ -15,10 +15,12 @@ public partial class Customer
     [Key]
     [Column(TypeName = "nchar (5)")]
     [StringLength(5)]
+    [RegularExpression("[A-Z]{5}")]
     public string CustomerId { get; set; } = null!;
 
     [Column(TypeName = "nvarchar (40)")]
     [StringLength(40)]
+    [Required]
     public string CompanyName { get; set; } = null!;
 
     [Column(TypeName = "nvarchar (30)")]

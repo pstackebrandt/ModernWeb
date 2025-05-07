@@ -6,9 +6,6 @@ This doesn't work well, but for now I update the file from time to time manually
 I want to see where the automation fails or succeeds.
 
 ## Current Steps
-- [ ] Improve Northwind Model, p. 644
-  - [X] string length attributes (using replace tool with regex)
-  - [ ] further model improvements, p. 645, 646
 
 ## Next Steps
 
@@ -57,6 +54,9 @@ I want to see where the automation fails or succeeds.
 - [X] Setup Entity Model
 - [X] Customize Northwind Model, OnModelCreating(), remove ValueGeneratedNever() calls, fix data types p. 639
 - [X] Add NorthwindContextExtensions, adds db context to service collection, p. 640
+- [X] Improve Northwind Model, p. 644
+  - [X] string length attributes (using replace tool with regex)
+  - [X] further model improvements, p. 645, 646
 
 ## Task Status Legend
 - [ ] Not Started

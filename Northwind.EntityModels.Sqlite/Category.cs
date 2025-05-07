@@ -14,6 +14,7 @@ public partial class Category
 
     [Column(TypeName = "nvarchar (15)")]
     [StringLength(15)]
+    [Required]
     public string CategoryName { get; set; } = null!;
 
     [Column(TypeName = "ntext")]
