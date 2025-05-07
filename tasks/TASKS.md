@@ -6,6 +6,7 @@ This doesn't work well, but for now I update the file from time to time manually
 I want to see where the automation fails or succeeds.
 
 ## Current Steps
+- [ ] Test db context, p. 647, add test project
 
 ## Next Steps
 
@@ -34,6 +35,7 @@ I want to see where the automation fails or succeeds.
     - WhatIf support, package restore, configurable options
   - [X] Add Northwind Database Context
   - [X] Setup Database Context logging
+  - [X] Test db context, p. 647, add test project
 
 ### Web Application Setup Northwind.Web
 - [X] Web Application Setup
