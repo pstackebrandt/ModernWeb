@@ -1,0 +1,39 @@
+﻿@page "/customers"
+@inject NorthwindContext _db
+@code {
+  public IEnumerable<Customer>? CustomersSet { get; set; }
+
+  protected override void OnInitialized()
+  {
+    CustomersSet = _db.Customers
+    .OrderBy(c => c.Country);
+  }
+}
+
+<div class="row">
+  <h1 class="display-2">Customers</h1>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Company Name</th>
+        <th>Country</th>
+        <th>City</th>
+        <th>Customer ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (CustomersSet is not null)
+      {
+        @foreach (Customer customer in CustomersSet)
+        {
+          <tr>
+            <td>@customer.CompanyName</td>
+            <td>@customer.Country</td>
+            <td>@customer.City</td>
+            <td>@customer.CustomerId</td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>

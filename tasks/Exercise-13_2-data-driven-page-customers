@@ -13,14 +13,14 @@ What do we need?
 - Link to Customers page in Main Navigation
 
 ### Customers page
-- A new razor page "Customers.razor"
+- [X] A new razor page "Customers.razor"
 ***Content of the page***
-- List of customers grouped by country
+- [X] List of customers grouped by country
 - Click on a customer leads to the Customer Orders page
 
 ***Data of a single customer***
-- CompanyName, Country, City, Customer ID
-- Titles:" Company Name", "Country", "City", "Customer ID"
+- [X] CompanyName, Country, City, Customer ID
+- [X] Titles:" Company Name", "Country", "City", "Customer ID"
 
 ### Customer Orders page
 - A new razor page "CustomerOrders.razor"
