@@ -10,6 +10,10 @@ I want to see where the automation fails or succeeds.
 
 ## Next Steps
 
+## Blazor Web App
+- [X] Add Blazor Web App Client project basic setup
+- [X] Add Blazor Web App Server project and basic setup
+
 ### Web Application Configuration
 - [ ] Implement Authentication & Authorization
   - [ ] User management
