@@ -1,0 +1,29 @@
+@* Favourite Sprunki *@
+@* Show current favourite sprunki or general one. *@
+
+<section class="container py-4" aria-labelledby="sprunki-title">
+    <h3 id="sprunki-title" class="text-center mb-4">
+        Our favourite Sprunkies
+    </h3>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <FavouriteCard Name="Hannah"
+                           Favourite="@ShowHannahsFavourite"
+                           Description="I like "
+                           Suffix=" best." />
+                           
+            <FavouriteCard Name="Papa"
+                           Favourite="@ShowPapasFavourite"
+                           Description="I prefer "
+                           Suffix="." />
+        </div>
+    </div>
+</section>
+
+@code {
+    [Parameter] public string? HannahsFavourite { get; set; }
+    private string ShowHannahsFavourite => HannahsFavourite ?? "Brud";
+
+    [Parameter] public string? PapasFavourite { get; set; }
+    private string ShowPapasFavourite => PapasFavourite ?? "Vineria";
+}

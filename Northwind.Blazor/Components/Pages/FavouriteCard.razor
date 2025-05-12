@@ -1,0 +1,16 @@
+@* Card for displaying a favourite sprunki *@
+<article class="card mb-3 shadow-sm" aria-label="Favourite card">
+    <div class="card-body">
+        <h4 class="card-title text-primary">@Name</h4>
+        <p class="card-text">
+            @Description <span class="badge bg-info">@Favourite</span>@Suffix
+        </p>
+    </div>
+</article>
+
+@code {
+    [Parameter] public string Name { get; set; } = string.Empty;
+    [Parameter] public string Favourite { get; set; } = string.Empty;
+    [Parameter] public string Description { get; set; } = "";
+    [Parameter] public string Suffix { get; set; } = "";
+} 

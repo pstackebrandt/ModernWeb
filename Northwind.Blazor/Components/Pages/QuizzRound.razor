@@ -1,0 +1,28 @@
+﻿@* Quizz round *@  
+@* Show question & answer.  *@
+@* Show help text if question or answer not given. *@
+
+@if (isRoundOk)
+{
+    <div class="alert alert-success">
+        <h3>@ShowQuestion</h3>
+        <p>@ShowAnswer</p>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <h3>@ShowHelpText</h3>
+    </div>
+}
+
+@code {
+    [Parameter] public string? Question { get; set; }
+    [Parameter] public string? Answer { get; set; }
+
+ private string ShowHelpText => "Please provide a question and an answer.";
+    private bool isRoundOk => !string.IsNullOrEmpty(Question) && !string.IsNullOrEmpty(Answer); 
+
+    private string ShowQuestion => Question ?? "unknown";
+    private string ShowAnswer => Answer ?? "unknown";
+}
