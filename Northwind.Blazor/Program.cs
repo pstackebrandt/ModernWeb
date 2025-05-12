@@ -1,5 +1,7 @@
 using Northwind.Blazor.Client.Pages;
 using Northwind.Blazor.Components;
+using Northwind.Blazor.Services;
+using Northwind.EntityModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// Register Northwind database context
+builder.Services.AddNorthwindContext();
+
+// Register Northwind service
+builder.Services.AddScoped<INorthwindService, NorthwindServiceServerSide>();
 
 var app = builder.Build();
 
