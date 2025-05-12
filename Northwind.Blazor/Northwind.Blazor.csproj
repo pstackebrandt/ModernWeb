@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Northwind.Blazor.Client\Northwind.Blazor.Client.csproj" />
+    <ProjectReference Include="..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Northwind.EntityModels" />	
   </ItemGroup>
 
 </Project>
