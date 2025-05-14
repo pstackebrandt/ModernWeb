@@ -3,10 +3,17 @@ using Northwind.EntityModels;
 
 namespace Northwind.Blazor.Services;
 
+/// <summary>
+/// Implements CRUD operations for the Customer entity.
+/// </summary>
 public class NorthwindServiceServerSide : INorthwindService
 {
     private readonly NorthwindContext _db;
 
+    /// <summary>
+    /// Initialize the service and add the database context.
+    /// </summary>
+    /// <param name="db">The database context instance.</param>
     public NorthwindServiceServerSide(NorthwindContext db)
     {
         _db = db;
@@ -19,7 +26,9 @@ public class NorthwindServiceServerSide : INorthwindService
 
     public Task<List<Customer>> GetCustomersAsync(string country)
     {
-        return _db.Customers.Where(c => c.Country == country).ToListAsync();
+        return _db.Customers
+            .Where(c => c.Country == country)
+            .ToListAsync();
     }
 
     public Task<Customer?> GetCustomerAsync(string id)
@@ -41,6 +50,12 @@ public class NorthwindServiceServerSide : INorthwindService
         return Task.FromResult(c);
     }
 
+    /// <summary>
+    /// Delete a customer identified by its id.
+    /// Will return without error if the customer is not found.
+    /// </summary>
+    /// <param name="id">The id of the customer to delete.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     public Task DeleteCustomerAsync(string id)
     {
         Customer? customer = _db.Customers
