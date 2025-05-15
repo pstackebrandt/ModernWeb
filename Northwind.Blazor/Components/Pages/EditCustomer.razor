@@ -1,0 +1,37 @@
+@rendermode RenderMode.InteractiveServer
+@page "/editcustomer/{CustomerId}"
+@inject INorthwindService _service
+@inject NavigationManager _navigation
+
+<h3>Edit Customer</h3>
+
+@* 
+    Summary:
+    EditCustomer is a Blazor component that allows the user to edit a customer's details.
+    It uses the CustomerDetail component (!) to display and edit the details.
+    It displays a form with fields.
+    The form supports validation and emits an event when the form is validly submitted.
+*@
+<CustomerDetail ButtonText="Update" Customer="@customer" OnValidSubmit="@Update" />
+
+@code {
+    [Parameter]
+    public string CustomerId { get; set; } = null!;
+
+    private Customer? customer = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        customer = await _service.GetCustomerAsync(CustomerId);
+    }
+
+    private async Task Update()
+    {
+        if (customer is not null)
+        {
+            await _service.UpdateCustomerAsync(customer);
+        }
+
+        _navigation.NavigateTo("customers");
+    }
+}

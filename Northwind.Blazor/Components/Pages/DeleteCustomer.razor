@@ -1,0 +1,44 @@
+@rendermode RenderMode.InteractiveServer
+@page "/deletecustomer/{customerid}"
+@inject INorthwindService _service
+@inject NavigationManager _navigation
+
+@*
+    Summary:
+    DeleteCustomer is a Blazor component that allows the user to delete a customer.
+    It displays a warning message and a button to delete the customer.
+    When the button is clicked, the customer is deleted and the user is \
+    redirected to the customers page.
+*@
+<h3>Delete Customer</h3>
+
+<div class="alert alert-danger">
+    Warning: This action cannot be undone!
+</div>
+
+<CustomerDetail ButtonText="Delete Customer"
+                ButtonStyle="danger"
+                Customer="@customer"
+                OnValidSubmit="@Delete"/>
+
+@code {
+    [Parameter]
+    public string CustomerId { get; set; } = null!;
+
+    private Customer? customer = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        customer = await _service.GetCustomerAsync(CustomerId);
+    }
+
+    private async Task Delete()
+    {
+        if (customer is not null)
+        {
+            await _service.DeleteCustomerAsync(CustomerId);
+        }
+
+        _navigation.NavigateTo("customers");
+    }
+}
