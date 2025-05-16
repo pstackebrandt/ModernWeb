@@ -57,6 +57,41 @@ For smaller numbers, corresponding spaces must be inserted.
 The result of Size times number gives the maximum number of digits in the result.
 For smaller results, corresponding spaces must be inserted.
 
+## Design Optimization Proposals
+- [ ] **Use a single <h1> heading per page for accessibility and SEO**  
+  Avoid repeating the "Times Table" heading if the component is embedded elsewhere.  
+  Use only one <h1> per page for accessibility and SEO.
+
+- [ ] **Present selected number and size visually (card, badge, etc.)**  
+  Display the selected number and size in a more visually distinct way, such as using a card, badge,  
+  or highlighted text, rather than plain text.
+
+- [ ] **Use an HTML <table> for the times table instead of <p> tags**  
+  Improves readability, accessibility, and alignment by using a semantic table structure.
+
+- [ ] **Allow interactive input for number and size (optional)**  
+  Consider allowing users to change the number and size interactively with input fields or sliders,  
+  especially if the component is used outside of strict routing.
+
+- [ ] **Display clear validation messages for invalid input**  
+  If a user enters an invalid value (e.g., via query string or input), display a clear, styled validation message.
+
+- [ ] **Ensure responsive design for all screen sizes**  
+  Make sure the layout adapts well to different screen sizes, especially for mobile users.
+
+- [ ] **Add navigation links/buttons for quick access to other tables**  
+  Add navigation links or buttons to quickly try other numbers or reset to defaults.
+
+- [ ] **Use semantic HTML and ARIA attributes for accessibility**  
+  Use semantic HTML and ARIA attributes where appropriate to improve accessibility for screen readers.
+
+- [ ] **Apply consistent styling with the app's design system**  
+  Apply consistent styling (using Bootstrap or your design system) for headings, tables, and parameter displays  
+  to match the rest of your app.
+
+- [ ] **Consider virtualization or limit max size for performance**  
+  For larger tables, consider virtualization or limiting the maximum size to prevent performance issues.
+
 ## Solution
 Prototyping:
 - Create a new component TimesTable.razor
