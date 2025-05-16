@@ -22,10 +22,10 @@
 - [x] Add to Home.razor
 - [x] Test with Home.razor
 - [x] Test with url
-- [ ] Add alignment of numbers
-- [ ] Plan optimized design
-- [ ] Implement optimized design
-- [ ] Test optimized design
+- [x] Add alignment of numbers
+- [x] Add alignment of results
+- [x] Plan optimized design
+- [x] Implement optimized design
 
 ## Design
 
