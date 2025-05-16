@@ -2,20 +2,45 @@
 @using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Components
 
-<PageTitle>@_pageTitle</PageTitle>
-
-<h1>@_pageTitle</h1>
-
-@* Show number and size *@
-<p>
-    Number: @Number, Size: @Size
-</p>
-
-@* Show the times table *@
-@for (int i = 1; i <= Size; i++)
+@if (RunsAsSeparatePage)
 {
-    <p>@Number x @i = @(Number* i)</p>
+    <PageTitle>@_pageTitle</PageTitle>
+    <h1>@_pageTitle</h1>
 }
+else
+{
+    @* Reduce the size of the heading to show it a part of the page *@
+    <h2>@_pageTitle</h2>
+}
+
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="d-flex justify-content-between">
+                            <span class="fw-bold">Number</span>
+                            <span>@Number</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex justify-content-between">
+                            <span class="fw-bold">Size</span>
+                            <span>@Size</span>
+                        </div>
+                    </div>
+                </div>
+
+                @* Show the times table in monospace, aligned format *@
+                @foreach (var line in GetAlignedTimesTableLines(Number, Size))
+                {
+                    <p class="times-table-line">@line</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
     private string _pageTitle = "Times Table";
@@ -28,4 +53,26 @@
     [Parameter]
     [Range(1, int.MaxValue, ErrorMessage = "Size must be at least 1")]
     public int Size { get; set; } = 12;
+
+    /// <summary>
+    /// Whether the component runs as a separate page or is 
+    /// embedded in another page or component.
+    /// </summary>
+    [Parameter]
+    public bool RunsAsSeparatePage { get; set; } = true;
+
+    private IEnumerable<string> GetAlignedTimesTableLines(int number, int size)
+    {
+        // Determine max width for each column
+        int maxDigitsLeft = Math.Max(number.ToString().Length, size.ToString().Length);
+        int maxDigitsResult = (number * size).ToString().Length;
+
+        for (int i = 1; i <= size; i++)
+        {
+            string left = number.ToString().PadLeft(maxDigitsLeft);
+            string right = i.ToString().PadLeft(maxDigitsLeft);
+            string result = (number * i).ToString().PadLeft(maxDigitsResult);
+            yield return $"{left} × {right} = {result}";
+        }
+    }
 }
