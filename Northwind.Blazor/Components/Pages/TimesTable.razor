@@ -9,34 +9,44 @@
 }
 else
 {
-    @* Reduce the size of the heading to show it a part of the page *@
-    <h2>@_pageTitle</h2>
+    @* Reduce the size of the heading to show it as part of the page *@
+    <h3>@_pageTitle</h3>
 }
 
 <div class="row">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+    <div class="col-auto">
         <div class="card mb-4">
             <div class="card-body">
+
+                @* Number and size *@
                 <div class="row mb-3">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-between">
-                            <span class="fw-bold">Number</span>
-                            <span>@Number</span>
-                        </div>
+                    <div class="col-auto">
+                            <span class="fw-bold w-auto">Number</span>
+                            <span class="w-auto ms-2">@Number</span>
                     </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-between">
-                            <span class="fw-bold">Size</span>
-                            <span>@Size</span>
-                        </div>
+                    <div class="col-auto">
+                            <span class="fw-bold w-auto">Size</span>
+                            <span class="w-auto ms-2">@Size</span>
                     </div>
                 </div>
 
-                @* Show the times table in monospace, aligned format *@
-                @foreach (var line in GetAlignedTimesTableLines(Number, Size))
-                {
-                    <p class="times-table-line">@line</p>
-                }
+                @* Times table *@
+                <table class="table table-striped w-auto">
+                    <thead class="table-light">
+                    </thead>
+                    <tbody>
+                        @for (int i = 1; i <= Size; i++)
+                        {
+                            <tr class=" ">
+                                <td class="ps-3 text-end">@Number</td>
+                                <td class="text-center">×</td>
+                                <td class="text-end">@i</td>
+                                <td class="text-center">=</td>
+                                <td class="text-end pe-3">@(Number * i)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -60,19 +70,4 @@ else
     /// </summary>
     [Parameter]
     public bool RunsAsSeparatePage { get; set; } = true;
-
-    private IEnumerable<string> GetAlignedTimesTableLines(int number, int size)
-    {
-        // Determine max width for each column
-        int maxDigitsLeft = Math.Max(number.ToString().Length, size.ToString().Length);
-        int maxDigitsResult = (number * size).ToString().Length;
-
-        for (int i = 1; i <= size; i++)
-        {
-            string left = number.ToString().PadLeft(maxDigitsLeft);
-            string right = i.ToString().PadLeft(maxDigitsLeft);
-            string result = (number * i).ToString().PadLeft(maxDigitsResult);
-            yield return $"{left} × {right} = {result}";
-        }
-    }
 }

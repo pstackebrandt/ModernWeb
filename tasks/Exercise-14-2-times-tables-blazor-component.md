@@ -58,15 +58,12 @@ The result of Size times number gives the maximum number of digits in the result
 For smaller results, corresponding spaces must be inserted.
 
 ## Design Optimization Proposals
-- [ ] **Use a single <h1> heading per page for accessibility and SEO**  
-  Avoid repeating the "Times Table" heading if the component is embedded elsewhere.  
-  Use only one <h1> per page for accessibility and SEO.
 
-- [ ] **Present selected number and size visually (card, badge, etc.)**  
+- [x] **Present selected number and size visually (card, badge, etc.)**  
   Display the selected number and size in a more visually distinct way, such as using a card, badge,  
   or highlighted text, rather than plain text.
 
-- [ ] **Use an HTML <table> for the times table instead of <p> tags**  
+- [x] **Use an HTML <table> for the times table instead of <p> tags**  
   Improves readability, accessibility, and alignment by using a semantic table structure.
 
 - [ ] **Allow interactive input for number and size (optional)**  
@@ -103,4 +100,6 @@ Optimization:
 - Use
 
 ## Bugs
-- [ ] Title should be visible once only if the component is used on a page like Home.razor
+- [X] Title should be visible once only if the component is used on a page like Home.razor
+- [x] Alignment of numbers is not correct
+- [x] Result is not aligned
