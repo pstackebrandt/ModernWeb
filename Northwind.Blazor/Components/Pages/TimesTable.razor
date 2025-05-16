@@ -1,0 +1,31 @@
+@page "/timestable/{Number:int}/{Size:int?}"
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>@_pageTitle</PageTitle>
+
+<h1>@_pageTitle</h1>
+
+@* Show number and size *@
+<p>
+    Number: @Number, Size: @Size
+</p>
+
+@* Show the times table *@
+@for (int i = 1; i <= Size; i++)
+{
+    <p>@Number x @i = @(Number* i)</p>
+}
+
+@code {
+    private string _pageTitle = "Times Table";
+
+    [Parameter]
+    [EditorRequired]
+    [Range(1, int.MaxValue, ErrorMessage = "Number must be at least 1")]
+    public int Number { get; set; }
+
+    [Parameter]
+    [Range(1, int.MaxValue, ErrorMessage = "Size must be at least 1")]
+    public int Size { get; set; } = 12;
+}
