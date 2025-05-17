@@ -1,6 +1,24 @@
-@Northwind.WebApi_HostAddress = http://localhost:5267
+@baseUrl = https://localhost:5151
 
-GET {{Northwind.WebApi_HostAddress}}/weatherforecast/
+### Get weather forecast for default 5 days
+GET {{baseUrl}}/weatherforecast
 Accept: application/json
 
-###
+### Get base url
+GET {{baseUrl}}
+Accept: application/json
+
+### Get OpenAPI documentation
+GET {{baseUrl}}/openapi.json
+Accept: application/json
+
+
+### Get weather forecast for 3 days
+GET {{baseUrl}}/weatherforecast/3
+Accept: application/json
+
+### Get weather forecast for 7 days
+GET {{baseUrl}}/weatherforecast/7
+Accept: application/json
+
+
