@@ -7,9 +7,8 @@ I want to see where the automation fails or succeeds.
 
 ## Current Steps
 - [ ] Test db context, p. 647, add test project
-- [ ] Reorganize Directory.Packages.props
-  - [ ] Use constants for version numbers
-  - [ ] Check whether upgrade to Asp.Net Core 9.0.5 is possible
+- [x] Reorganize Directory.Packages.props, Use constants for version numbers
+- [ ] Check whether upgrade to Asp.Net Core 9.0.5 is possible
 
 ## Next Steps
 
