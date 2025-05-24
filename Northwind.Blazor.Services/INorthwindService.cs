@@ -48,4 +48,13 @@ public interface INorthwindService
     /// <param name="id">The id of the customer to delete.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
     Task DeleteCustomerAsync(string id);
+
+    /// <summary>
+    /// Get all countries.
+    /// </summary>
+    /// <returns>A list of all countries.</returns>
+    /// <remarks>
+    /// todo Why is this method not asynchronous?
+    /// </remarks>
+    List<string?> GetCountries();
 }

@@ -72,4 +72,13 @@ public class NorthwindServiceServerSide : INorthwindService
             return _db.SaveChangesAsync();
         }
     }
+
+    public List<string?> GetCountries()
+    {
+        return _db.Customers
+            .Select(c => c.Country) // Select the country column, get all country names
+            .Distinct() // Get unique country names
+            .OrderBy(country => country) // Order the country names alphabetically
+            .ToList();
+    }
 }
