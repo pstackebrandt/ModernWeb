@@ -1,33 +1,40 @@
 ﻿@inject INorthwindService _service
 
+<!-- Top row of the navigation bar -->
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Northwind.Blazor</a>
     </div>
 </div>
 
+<!-- Toggle button for the navigation menu -->
 <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
+<!-- Navigation menu -->
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="nav flex-column">
+        <!-- Menu entry for home -->
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
 
+        <!-- Menu entry for counter -->
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="counter">
                 <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
             </NavLink>
         </div>
 
+        <!-- Menu entry for weather -->
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="weather">
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
 
+        <!-- Menu entry for all customers -->
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="customers">
                 <span class="bi bi-globe" aria-hidden="true"></span>
@@ -42,6 +49,9 @@
             </NavLink>
         </div>
 
+        <!-- Create a menu entry for each country with customers. 
+        Each entry leads to a page listing the customers of the specific country. -->
+        <!-- Show only the first 10 countries for now -->
         @foreach (string? country in _service.GetCountries().Take(10))
         {
             string countryLink = "customers/" + country;

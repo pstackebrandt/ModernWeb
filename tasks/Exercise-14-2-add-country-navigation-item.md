@@ -7,12 +7,10 @@
 
 ## Steps
 - [x] Describe the task
-- [ ] Plan the design
-- [ ] Plan the steps
 - [x] Implement the design - Too easy, just copy the code from the book.
 - [x] Test functionality
-- [ ] Plan optimized design
-- [ ] Implement optimized design
+- [x] Plan optimized design
+- [x] Comment the code
 
 ## Design
 
