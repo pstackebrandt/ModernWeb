@@ -1,4 +1,6 @@
 using Northwind.EntityModels; // for AddNorthwindContext method
+using Microsoft.Extensions.Caching.Hybrid; // for HybridCache
+using Northwind.WebApi.Repositories; // for ICustomerRepository
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddNorthwindContext();
+
+// Configure caching, see p. 750
+builder.Services.AddHybridCache(options =>
+{
+    options.DefaultEntryOptions = new HybridCacheEntryOptions
+    {
+        Expiration = TimeSpan.FromSeconds(60),
+        LocalCacheExpiration = TimeSpan.FromSeconds(30)
+    };
+});
+
+// Add CustomerRepository to the container
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 

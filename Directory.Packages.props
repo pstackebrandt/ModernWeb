@@ -31,7 +31,7 @@
   
     <ItemGroup Label="For web services.">
       <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCoreVersion)" />
-      <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="$(MsExtensionsVersion)" />
+      <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.5.0" />
     </ItemGroup>
   
   </Project>
