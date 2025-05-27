@@ -1,0 +1,148 @@
+@baseUrl = https://localhost:5151
+
+###############################################################################
+# Customer API Endpoints
+###############################################################################
+
+### Get all customers
+GET {{baseUrl}}/customers
+Accept: application/json
+
+### Get customers by country - Germany
+GET {{baseUrl}}/customers/in/Germany
+Accept: application/json
+
+### Get customers by country - USA
+GET {{baseUrl}}/customers/in/USA
+Accept: application/json
+
+### Get customers by country - France
+GET {{baseUrl}}/customers/in/France
+Accept: application/json
+
+### Get customers by country - UK
+GET {{baseUrl}}/customers/in/UK
+Accept: application/json
+
+### Get customers by country - case insensitive test
+GET {{baseUrl}}/customers/in/germany
+Accept: application/json
+
+### Get customer by ID - ALFKI (Alfred's Futterkiste - Germany)
+GET {{baseUrl}}/customers/ALFKI
+Accept: application/json
+
+### Get customer by ID - BLAUS (Blauer See Delikatessen - Germany)
+GET {{baseUrl}}/customers/BLAUS
+Accept: application/json
+
+### Get customer by ID - FRANK (Frankenversand - Germany)
+GET {{baseUrl}}/customers/FRANK
+Accept: application/json
+
+### Get customer by ID - QUICK (QUICK-Stop - Germany)
+GET {{baseUrl}}/customers/QUICK
+Accept: application/json
+
+### Create a new customer
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "TESTC",
+  "companyName": "Test Company",
+  "contactName": "John Doe",
+  "contactTitle": "Manager",
+  "address": "123 Test Street",
+  "city": "Test City",
+  "region": "Test Region",
+  "postalCode": "12345",
+  "country": "Germany",
+  "phone": "123-456-7890",
+  "fax": "123-456-7891"
+}
+
+### Update an existing customer
+PUT {{baseUrl}}/customers/TESTC
+Content-Type: application/json
+
+{
+  "customerId": "TESTC",
+  "companyName": "Updated Test Company",
+  "contactName": "Jane Doe",
+  "contactTitle": "Senior Manager",
+  "address": "456 Updated Street",
+  "city": "Updated City",
+  "region": "Updated Region",
+  "postalCode": "54321",
+  "country": "Germany",
+  "phone": "987-654-3210",
+  "fax": "987-654-3211"
+}
+
+### Delete a customer
+DELETE {{baseUrl}}/customers/TESTC
+Accept: application/json
+
+###############################################################################
+# Error Handling Tests
+###############################################################################
+
+### Test error handling - BAD customer ID (special case)
+DELETE {{baseUrl}}/customers/BAD
+Accept: application/json
+
+### Test 404 - Non-existent customer
+GET {{baseUrl}}/customers/ZZZZZ
+Accept: application/json
+
+### Test invalid customer ID format (too short)
+GET {{baseUrl}}/customers/ABC
+Accept: application/json
+
+### Test invalid customer ID format (too long)
+GET {{baseUrl}}/customers/ABCDEF
+Accept: application/json
+
+### Test invalid customer ID format (lowercase)
+GET {{baseUrl}}/customers/alfki
+Accept: application/json
+
+### Test invalid customer ID format (numbers)
+GET {{baseUrl}}/customers/12345
+Accept: application/json
+
+### Test create customer with invalid ID
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "test",
+  "companyName": "Invalid ID Test",
+  "contactName": "Test User",
+  "country": "Germany"
+}
+
+### Test create customer with missing required fields
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "TESTX"
+}
+
+###############################################################################
+# Edge Cases
+###############################################################################
+
+### Test country with no customers
+GET {{baseUrl}}/customers/in/Antarctica
+Accept: application/json
+
+### Test empty country search
+GET {{baseUrl}}/customers/in/
+Accept: application/json
+
+### Test country with special characters
+GET {{baseUrl}}/customers/in/Côte d'Ivoire
+Accept: application/json 
