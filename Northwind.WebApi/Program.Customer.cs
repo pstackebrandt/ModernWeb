@@ -149,6 +149,19 @@ static partial class Program
                     ICustomerRepository repo,
                     CancellationToken token = default) =>
                 {
+                    // Take control of problem details. (Example)
+                    if (id == "BAD")
+                    {
+                        ProblemDetails problemDetails = new()
+                        {
+                            Status = StatusCodes.Status400BadRequest,
+                            Type = $"https://localhost:5151/customers/failed-to-delete",
+                            Title = $"Customer ID {id} found but failed to delete.",
+                            Detail = "More details like Company Name, Country, etc."
+                        };
+                        return TypedResults.Problem(problemDetails); // 400 Bad Request
+                    }
+                    
                     // Try to retrieve the customer by ID.
                     Customer? existing = await repo.RetrieveAsync(id, token);
                     if (existing is null)
