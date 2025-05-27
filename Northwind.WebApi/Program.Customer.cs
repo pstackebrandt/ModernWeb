@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc; // To use ProblemDetails
 using Northwind.EntityModels; // for Customer
 using Northwind.WebApi.Repositories; // for ICustomerRepository
 
-namespace Northwind.WebApi;
-
 /// <summary>
 /// Customer-related endpoints.
 /// </summary>

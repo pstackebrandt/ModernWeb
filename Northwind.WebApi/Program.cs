@@ -33,9 +33,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Code to manage weather forecast moved to Program.Weather.cs
-
 app.MapGet("/weatherforecast/{days:int?}",
     (int? days) => GetWeather(days ?? 5))
     .WithName("GetWeatherForecast");
-    
+
+// Map customer endpoints
+app.MapCustomers();
+
 app.Run();
