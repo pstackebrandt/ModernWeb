@@ -31,7 +31,8 @@ static partial class Program
                     // Current implementation is inefficient for large datasets, because it retrieves all customers and after that filters them. Possibly used by Price to simplify the code.
                     // TODO: Implement a repository method that returns a filtered list of customers without retrieving all customers first.
                     return (await repo.RetrieveAllAsync())
-                                .Where(customer => customer.Country == country);
+                                .Where(customer => customer.Country?.ToUpper() == country.ToUpper());
+                    // We ignore customers without a country.
                 }
             );
 
@@ -159,7 +160,7 @@ static partial class Program
                         };
                         return TypedResults.Problem(problemDetails); // 400 Bad Request
                     }
-                    
+
                     // Try to retrieve the customer by ID.
                     Customer? existing = await repo.RetrieveAsync(id, token);
                     if (existing is null)
