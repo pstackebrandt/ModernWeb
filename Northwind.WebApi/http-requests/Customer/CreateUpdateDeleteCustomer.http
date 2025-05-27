@@ -1,0 +1,250 @@
+@baseUrl = https://localhost:5151
+
+###############################################################################
+# Customer CUD Operations (Create, Update, Delete)
+###############################################################################
+
+### Create a new customer
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "TESTC",
+  "companyName": "Test Company",
+  "contactName": "John Doe",
+  "contactTitle": "Manager",
+  "address": "123 Test Street",
+  "city": "Test City",
+  "region": "Test Region",
+  "postalCode": "12345",
+  "country": "Germany",
+  "phone": "123-456-7890",
+  "fax": "123-456-7891"
+}
+
+### Update an existing customer
+PUT {{baseUrl}}/customers/TESTC
+Content-Type: application/json
+
+{
+  "customerId": "TESTC",
+  "companyName": "Updated Test Company",
+  "contactName": "Jane Doe",
+  "contactTitle": "Senior Manager",
+  "address": "456 Updated Street",
+  "city": "Updated City",
+  "region": "Updated Region",
+  "postalCode": "54321",
+  "country": "Germany",
+  "phone": "987-654-3210",
+  "fax": "987-654-3211"
+}
+
+### Delete a customer
+DELETE {{baseUrl}}/customers/TESTC
+Accept: application/json
+
+###############################################################################
+# Create Customer - Various Scenarios
+###############################################################################
+
+### Create customer with minimal required fields
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "MINML",
+  "companyName": "Minimal Company"
+}
+
+### Create customer with all fields
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "FULLC",
+  "companyName": "Full Data Company",
+  "contactName": "Alice Smith",
+  "contactTitle": "CEO",
+  "address": "789 Complete Avenue",
+  "city": "Full City",
+  "region": "Complete Region",
+  "postalCode": "98765",
+  "country": "USA",
+  "phone": "555-123-4567",
+  "fax": "555-123-4568"
+}
+
+### Create customer with German data
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "DEUTS",
+  "companyName": "Deutsche Firma GmbH",
+  "contactName": "Hans Müller",
+  "contactTitle": "Geschäftsführer",
+  "address": "Hauptstraße 123",
+  "city": "München",
+  "region": "Bayern",
+  "postalCode": "80331",
+  "country": "Germany",
+  "phone": "089-123456",
+  "fax": "089-123457"
+}
+
+###############################################################################
+# Update Customer - Various Scenarios
+###############################################################################
+
+### Update customer - change country
+PUT {{baseUrl}}/customers/MINML
+Content-Type: application/json
+
+{
+  "customerId": "MINML",
+  "companyName": "Minimal Company Updated",
+  "contactName": "Bob Johnson",
+  "contactTitle": "Manager",
+  "country": "France"
+}
+
+### Update customer - add missing fields
+PUT {{baseUrl}}/customers/FULLC
+Content-Type: application/json
+
+{
+  "customerId": "FULLC",
+  "companyName": "Full Data Company Updated",
+  "contactName": "Alice Smith-Johnson",
+  "contactTitle": "President",
+  "address": "999 Updated Boulevard",
+  "city": "New Full City",
+  "region": "Updated Region",
+  "postalCode": "11111",
+  "country": "Canada",
+  "phone": "555-999-8888",
+  "fax": "555-999-8889"
+}
+
+###############################################################################
+# Delete Customer - Various Scenarios
+###############################################################################
+
+### Delete minimal customer
+DELETE {{baseUrl}}/customers/MINML
+Accept: application/json
+
+### Delete full customer
+DELETE {{baseUrl}}/customers/FULLC
+Accept: application/json
+
+### Delete German customer
+DELETE {{baseUrl}}/customers/DEUTS
+Accept: application/json
+
+### Test error handling - BAD customer ID (special case)
+DELETE {{baseUrl}}/customers/BAD
+Accept: application/json
+
+###############################################################################
+# Error Handling - Create Operations
+###############################################################################
+
+### Test create customer with invalid ID format
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "test",
+  "companyName": "Invalid ID Test",
+  "contactName": "Test User",
+  "country": "Germany"
+}
+
+### Test create customer with missing required fields
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "TESTX"
+}
+
+### Test create customer with null values
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "NULLT",
+  "companyName": null,
+  "contactName": null,
+  "country": null
+}
+
+### Test create customer with empty strings
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "EMPTY",
+  "companyName": "",
+  "contactName": "",
+  "country": ""
+}
+
+### Test create duplicate customer (should fail)
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "customerId": "ALFKI",
+  "companyName": "Duplicate Test",
+  "contactName": "Duplicate User"
+}
+
+###############################################################################
+# Error Handling - Update Operations
+###############################################################################
+
+### Test update non-existent customer
+PUT {{baseUrl}}/customers/NOEXS
+Content-Type: application/json
+
+{
+  "customerId": "NOEXS",
+  "companyName": "Non-existent Company"
+}
+
+### Test update with mismatched ID
+PUT {{baseUrl}}/customers/TESTC
+Content-Type: application/json
+
+{
+  "customerId": "WRONG",
+  "companyName": "Wrong ID Test"
+}
+
+### Test update with invalid ID format
+PUT {{baseUrl}}/customers/invalid
+Content-Type: application/json
+
+{
+  "customerId": "invalid",
+  "companyName": "Invalid Update Test"
+}
+
+###############################################################################
+# Error Handling - Delete Operations
+###############################################################################
+
+### Test delete non-existent customer
+DELETE {{baseUrl}}/customers/NOEXS
+Accept: application/json
+
+### Test delete with invalid ID format
+DELETE {{baseUrl}}/customers/invalid
+Accept: application/json
+
+### Test delete already deleted customer
+DELETE {{baseUrl}}/customers/TESTC
+Accept: application/json 

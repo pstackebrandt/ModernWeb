@@ -1,0 +1,16 @@
+@baseUrl = https://localhost:5151
+
+###############################################################################
+# Customer API Endpoints - General Operations
+###############################################################################
+
+### Get all customers
+GET {{baseUrl}}/customers
+Accept: application/json
+
+###############################################################################
+# Note: Other Customer operations have been moved to specialized files:
+# - CustomerById.http - Individual customer retrieval by ID
+# - CustomersByCountry.http - Customer queries filtered by country  
+# - CustomerCRUD.http - Create, Update, Delete operations
+############################################################################### 

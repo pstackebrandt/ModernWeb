@@ -1,0 +1,117 @@
+@baseUrl = https://localhost:5151
+
+###############################################################################
+# Individual Customer by ID API Endpoints
+###############################################################################
+
+### Get customer by ID - ALFKI (Alfred's Futterkiste - Germany)
+GET {{baseUrl}}/customers/ALFKI
+Accept: application/json
+
+### Get customer by ID - BLAUS (Blauer See Delikatessen - Germany)
+GET {{baseUrl}}/customers/BLAUS
+Accept: application/json
+
+### Get customer by ID - FRANK (Frankenversand - Germany)
+GET {{baseUrl}}/customers/FRANK
+Accept: application/json
+
+### Get customer by ID - QUICK (QUICK-Stop - Germany)
+GET {{baseUrl}}/customers/QUICK
+Accept: application/json
+
+### Get customer by ID - KOENE (Königlich Essen - Germany)
+GET {{baseUrl}}/customers/KOENE
+Accept: application/json
+
+### Get customer by ID - OTTIK (Ottilies Käseladen - Germany)
+GET {{baseUrl}}/customers/OTTIK
+Accept: application/json
+
+### Get customer by ID - TOMSP (Toms Spezialitäten - Germany)
+GET {{baseUrl}}/customers/TOMSP
+Accept: application/json
+
+### Get customer by ID - WANDK (Die Wandernde Kuh - Germany)
+GET {{baseUrl}}/customers/WANDK
+Accept: application/json
+
+### Get customer by ID - LEHMS (Lehmanns Marktstand - Germany)
+GET {{baseUrl}}/customers/LEHMS
+Accept: application/json
+
+### Get customer by ID - MORGK (Morgenstern Gesundkost - Germany)
+GET {{baseUrl}}/customers/MORGK
+Accept: application/json
+
+###############################################################################
+# Non-German Customers
+###############################################################################
+
+### Get customer by ID - SAVEA (Save-a-lot Markets - USA)
+GET {{baseUrl}}/customers/SAVEA
+Accept: application/json
+
+### Get customer by ID - BLONP (Blondel père et fils - France)
+GET {{baseUrl}}/customers/BLONP
+Accept: application/json
+
+### Get customer by ID - AROUT (Around the Horn - UK)
+GET {{baseUrl}}/customers/AROUT
+Accept: application/json
+
+### Get customer by ID - BOTTM (Bottom-Dollar Markets - Canada)
+GET {{baseUrl}}/customers/BOTTM
+Accept: application/json
+
+### Get customer by ID - ERNSH (Ernst Handel - Austria)
+GET {{baseUrl}}/customers/ERNSH
+Accept: application/json
+
+###############################################################################
+# Error Handling - Invalid Customer IDs
+###############################################################################
+
+### Test 404 - Non-existent customer
+GET {{baseUrl}}/customers/ZZZZZ
+Accept: application/json
+
+### Test invalid customer ID format (too short)
+GET {{baseUrl}}/customers/ABC
+Accept: application/json
+
+### Test invalid customer ID format (too long)
+GET {{baseUrl}}/customers/ABCDEF
+Accept: application/json
+
+### Test invalid customer ID format (lowercase)
+GET {{baseUrl}}/customers/alfki
+Accept: application/json
+
+### Test invalid customer ID format (numbers)
+GET {{baseUrl}}/customers/12345
+Accept: application/json
+
+### Test invalid customer ID format (special characters)
+GET {{baseUrl}}/customers/ALF@I
+Accept: application/json
+
+### Test invalid customer ID format (mixed case)
+GET {{baseUrl}}/customers/AlfKi
+Accept: application/json
+
+### Test invalid customer ID format (with spaces)
+GET {{baseUrl}}/customers/ALF KI
+Accept: application/json
+
+###############################################################################
+# Edge Cases
+###############################################################################
+
+### Test customer ID with URL encoding issues
+GET {{baseUrl}}/customers/ALF%20I
+Accept: application/json
+
+### Test empty customer ID
+GET {{baseUrl}}/customers/
+Accept: application/json 

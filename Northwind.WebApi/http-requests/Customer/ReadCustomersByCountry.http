@@ -1,0 +1,93 @@
+@baseUrl = https://localhost:5151
+
+###############################################################################
+# Customers by Country API Endpoints
+###############################################################################
+
+### Get customers by country - Germany
+GET {{baseUrl}}/customers/in/Germany
+Accept: application/json
+
+### Get customers by country - USA
+GET {{baseUrl}}/customers/in/USA
+Accept: application/json
+
+### Get customers by country - France
+GET {{baseUrl}}/customers/in/France
+Accept: application/json
+
+### Get customers by country - UK
+GET {{baseUrl}}/customers/in/UK
+Accept: application/json
+
+### Get customers by country - Brazil
+GET {{baseUrl}}/customers/in/Brazil
+Accept: application/json
+
+### Get customers by country - Italy
+GET {{baseUrl}}/customers/in/Italy
+Accept: application/json
+
+### Get customers by country - Spain
+GET {{baseUrl}}/customers/in/Spain
+Accept: application/json
+
+### Get customers by country - Austria
+GET {{baseUrl}}/customers/in/Austria
+Accept: application/json
+
+### Get customers by country - Canada
+GET {{baseUrl}}/customers/in/Canada
+Accept: application/json
+
+### Get customers by country - Mexico
+GET {{baseUrl}}/customers/in/Mexico
+Accept: application/json
+
+###############################################################################
+# Case Sensitivity Tests
+###############################################################################
+
+### Get customers by country - case insensitive test (lowercase)
+GET {{baseUrl}}/customers/in/germany
+Accept: application/json
+
+### Get customers by country - case insensitive test (mixed case)
+GET {{baseUrl}}/customers/in/GeRmAnY
+Accept: application/json
+
+### Get customers by country - case insensitive test (uppercase)
+GET {{baseUrl}}/customers/in/FRANCE
+Accept: application/json
+
+###############################################################################
+# Edge Cases and Error Handling
+###############################################################################
+
+### Test country with no customers
+GET {{baseUrl}}/customers/in/Antarctica
+Accept: application/json
+
+### Test empty country search
+GET {{baseUrl}}/customers/in/
+Accept: application/json
+
+### Test country with special characters
+GET {{baseUrl}}/customers/in/Côte d'Ivoire
+Accept: application/json
+
+### Test country with spaces
+GET {{baseUrl}}/customers/in/United States
+Accept: application/json
+
+### Test country with numbers
+GET {{baseUrl}}/customers/in/Country123
+Accept: application/json
+
+### Test very long country name
+GET {{baseUrl}}/customers/in/ThisIsAVeryLongCountryNameThatProbablyDoesNotExist
+Accept: application/json
+
+### Test country with special URL characters
+GET {{baseUrl}}/customers/in/Test&Country
+Accept: application/json 
