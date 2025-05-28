@@ -3,6 +3,8 @@ using Microsoft.Extensions.Caching.Hybrid; // for HybridCache
 using Northwind.WebApi.Repositories; // for ICustomerRepository
 using Microsoft.AspNetCore.HttpLogging; // for HttpLoggingFields
 
+const string corsPolicyName = "AllowWasmClient";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -32,6 +34,16 @@ builder.Services.AddHttpLogging(options =>
     options.ResponseBodyLogLimit = 4096; // Default is 32K
 });
 
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: corsPolicyName,
+        policy =>
+        {
+            policy.WithOrigins("https://localhost:5152",
+            "http://localhost:5153");
+        });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -47,6 +59,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpLogging();
 
 app.UseHttpsRedirection();
+
+app.UseCors(corsPolicyName);
 
 // Code to manage weather forecast moved to Program.Weather.cs
 app.MapGet("/weatherforecast/{days:int?}",
