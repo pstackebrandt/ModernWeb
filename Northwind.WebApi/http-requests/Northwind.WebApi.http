@@ -1,17 +1,20 @@
 @baseUrl = https://localhost:5151
 
-### Get weather forecast for default 5 days
-GET {{baseUrl}}/weatherforecast
+### Get OpenAPI documentation
+GET {{baseUrl}}/openapi.json
 Accept: application/json
+
+### Get Swagger UI
+GET {{baseUrl}}/swagger
+Accept: text/html
 
 ### Get base url
 GET {{baseUrl}}
 Accept: application/json
 
-### Get OpenAPI documentation
-GET {{baseUrl}}/openapi.json
+### Get weather forecast for default 5 days
+GET {{baseUrl}}/weatherforecast
 Accept: application/json
-
 
 ### Get weather forecast for 3 days
 GET {{baseUrl}}/weatherforecast/3

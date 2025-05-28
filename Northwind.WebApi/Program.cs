@@ -29,6 +29,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi(); // Add openapi endpoint
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v2.json", "Northwind API v2");
+    });
 }
 
 app.UseHttpsRedirection();
