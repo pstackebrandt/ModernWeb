@@ -10,11 +10,9 @@ if (settings is null)
 
 Kernel kernel = GetKernel(settings);
 
-ConsoleKey key = ConsoleKey.A;
-
-while (key is not ConsoleKey.X)
+while (true)
 {
-    WriteLine("Enter your question: ");
+    WriteLine("Enter your question (or type 'x' to exit): ");
     string? question = ReadLine();
 
     if (string.IsNullOrWhiteSpace(question))
@@ -23,11 +21,17 @@ while (key is not ConsoleKey.X)
         continue;
     }
 
+    // Check if user wants to exit by typing 'x' or 'X'
+    if (IsExitCommand(question))
+    {
+        break;
+    }
+
     WriteLine(await kernel.InvokePromptAsync(question));
 
     WriteLine();
-
-    WriteLine("Press 'X' to exit or any other key to ask another question.");
-
-    key = ReadKey(intercept: true).Key;
 }
+
+// Helper method to check if input is exit command
+static bool IsExitCommand(string input) =>
+    input.Trim().Equals("x", StringComparison.OrdinalIgnoreCase);
