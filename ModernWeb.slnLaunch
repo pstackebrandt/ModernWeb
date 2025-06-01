@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Run WasmClient",
+    "Projects": [
+      {
+        "Path": "Northwind.WebApi\\Northwind.WebApi.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "Northwind.WebAPI.WasmClient\\Northwind.WebAPI.WasmClient.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]
