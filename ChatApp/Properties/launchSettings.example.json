@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ChatApp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Settings:OpenAISecretKey": "<could-be-used-for-your-secret-key>"
+      }
+    }
+  }
+}

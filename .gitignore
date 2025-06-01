@@ -20,6 +20,9 @@ appsettings.*.json
 **/appsettings.Testing.json
 !**/appsettings.Testing.Example.json
 
+# ChatApp launch settings (keep example file)
+ChatApp/Properties/launchSettings.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
