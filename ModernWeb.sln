@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebApi", "Northwi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebAPI.WasmClient", "Northwind.WebAPI.WasmClient\Northwind.WebAPI.WasmClient.csproj", "{FD72E8C6-5B81-4FE2-8659-A48485631E50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "ChatApp\ChatApp.csproj", "{6D9E7403-9194-4762-86C3-1842488BCBAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,18 @@ Global
 		{FD72E8C6-5B81-4FE2-8659-A48485631E50}.Release|x64.Build.0 = Release|Any CPU
 		{FD72E8C6-5B81-4FE2-8659-A48485631E50}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD72E8C6-5B81-4FE2-8659-A48485631E50}.Release|x86.Build.0 = Release|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Debug|x64.Build.0 = Debug|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Debug|x86.Build.0 = Debug|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x64.ActiveCfg = Release|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x64.Build.0 = Release|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x86.ActiveCfg = Release|Any CPU
+		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
