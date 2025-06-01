@@ -33,6 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="System.Console" Static="true" />
   </ItemGroup>
 
