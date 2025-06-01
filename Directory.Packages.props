@@ -34,5 +34,18 @@
       <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.5.0" />
       <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.3.0" />
     </ItemGroup>
+
+    <ItemGroup Label="For configuration and extensions.">
+      <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="$(MsExtConfigVersion)" />
+      <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="$(MsExtConfigVersion)" />
+      <PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(MsExtConfigVersion)" />
+      <PackageVersion Include="Microsoft.Extensions.Http" Version="$(MsExtensionsVersion)" />
+      <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.5.0" />
+      <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="$(MsExtensionsVersion)" />
+    </ItemGroup>
+
+    <ItemGroup Label="For AI and machine learning.">
+      <PackageVersion Include="Microsoft.SemanticKernel" Version="1.54.0" />
+    </ItemGroup>
   
   </Project>
