@@ -2,6 +2,7 @@
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using ChatApp; // to use TestDbConnection
+using ChatApp.Extensions; // to use Kernel extensions
 
 // Get and validate app settings
 // ==================================
@@ -26,22 +27,16 @@ StartupHelper.HandleStartupChecks(args, kernel);
 IChatCompletionService completion = kernel.GetRequiredService<IChatCompletionService>();
 
 // Add debug information
-WriteLine($"Debug: Kernel has {kernel.Plugins.Count} plugins registered:");
-foreach (var plugin in kernel.Plugins)
-{
-    WriteLine($"  Plugin: {plugin.Name}");
-    foreach (var function in plugin)
-    {
-        WriteLine($"    Function: {function.Name} - {function.Description}");
-    }
-}
-WriteLine();
+kernel.PrintRegisteredPluginsInfo();
+
 string systemMessage = @"You are an AI assistant with access to specific functions. You MUST use these functions when appropriate.";
 
 ChatHistory history = new(systemMessage: systemMessage);
 
+// Configure how the AI should handle function calls during conversation
 PromptExecutionSettings options = new()
 {
+    // Enable automatic function calling - AI will decide when to use available functions
     FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
 };
 
