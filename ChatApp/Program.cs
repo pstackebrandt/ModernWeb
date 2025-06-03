@@ -36,29 +36,9 @@ foreach (var plugin in kernel.Plugins)
     }
 }
 WriteLine();
-string shortSystemMessage = @"You are an AI assistant with access to specific functions. You MUST use these functions when appropriate.";
+string systemMessage = @"You are an AI assistant with access to specific functions. You MUST use these functions when appropriate.";
 
-
-/* string longSystemMessage = @"You are an AI assistant with access to specific functions. You MUST use these functions when appropriate.
-
-AVAILABLE FUNCTIONS:
-1. GetAuthorBiography() - Use when asked about the author or book author
-2. GetProductsInCategory(categoryName) - Use when asked about products in categories
-3. TestFunctionCalling() - Use when asked to test function calling
-
-CRITICAL INSTRUCTIONS:
-- When users ask about products in categories (Beverages, Seafood, etc.), you MUST call GetProductsInCategory
-- When users ask to test functions or call TestFunctionCalling, you MUST call TestFunctionCalling  
-- When users ask about the author, you MUST call GetAuthorBiography
-- Always use the actual functions rather than providing generic responses
-- If a user specifically asks you to call a function, DO IT
-
-Examples:
-- 'What products are in Seafood?' → Call GetProductsInCategory('Seafood')
-- 'Call TestFunctionCalling' → Call TestFunctionCalling()
-- 'Tell me about the author' → Call GetAuthorBiography()"; */
-
-ChatHistory history = new(systemMessage: shortSystemMessage);
+ChatHistory history = new(systemMessage: systemMessage);
 
 PromptExecutionSettings options = new()
 {
