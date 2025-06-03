@@ -43,6 +43,9 @@ PromptExecutionSettings options = new()
 int consecutiveInvalidAttempts = 0;
 const int maxInvalidAttempts = 3;
 
+// To help implement async streaming output
+System.Text.StringBuilder builder = new();
+
 while (true)
 {
     // Get user input
@@ -78,14 +81,18 @@ while (true)
     WriteLine($"[DEBUG] Sending message to AI. History has {history.Count} messages");
     WriteLine($"[DEBUG] FunctionChoiceBehavior: {options.FunctionChoiceBehavior}");
 
-    ChatMessageContent answer = await completion.GetChatMessageContentAsync(history, options, kernel);
+    // Use streaming chat completion
+    builder.Clear();
+    await foreach (StreamingChatMessageContent message in completion.GetStreamingChatMessageContentsAsync(history, options, kernel))
+    {
+        Write(message.Content);
+        builder.Append(message.Content);
+    }
 
-    WriteLine($"[DEBUG] Received response. Content length: {answer.Content?.Length ?? 0}");
-    WriteLine($"[DEBUG] Function calls in response: {answer.Items.OfType<FunctionCallContent>().Count()}");
+    history.AddAssistantMessage(builder.ToString());
 
-    // Use the answer
-    history.AddAssistantMessage(answer.Content!);
-    WriteLine(answer.Content!);
+    WriteLine(); // Add a blank line after the response
+    WriteLine($"[DEBUG] Total response length: {builder.Length} characters");
 
     WriteLine();
 }

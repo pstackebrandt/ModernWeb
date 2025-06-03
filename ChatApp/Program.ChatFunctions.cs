@@ -8,7 +8,7 @@ using System.Text.Json; // to use JsonSerializer
 partial class Program
 {
     /// <summary>
-    /// Get the author's biography incl. books
+    /// Get the biography and bibliography of Mark J Price the author of the dot net 8 development book used by the developer Peter St.
     /// </summary>
     /// <returns>The author's biography</returns>
     private static string GetAuthorBiography()
@@ -60,11 +60,12 @@ Mark J Price has authored the following books:
 - C# 12 and .NET 8 – Modern Cross-Platform Development Fundamentals, 
 8th Edition, 2023
 - Apps and Services with .NET 8, 2nd Edition, 2023
+- Tools and Skills for .NET 8, 1st Edition, 2024 (Peter St. uses this book)
 """;
     }
 
     /// <summary>
-    /// Simple test function to verify function calling works
+    /// Simple test function to verify whetherfunction calling works.
     /// </summary>
     /// <returns>A test message with timestamp</returns>
     private static string TestFunctionCalling()
@@ -80,7 +81,7 @@ Mark J Price has authored the following books:
     };
 
     /// <summary>
-    /// Get all products of a category  
+    /// Get data from the Northwind database. Especially get information about all products of a specific category.
     /// </summary>
     /// <param name="categoryName">The name of the category</param>
     /// <returns>A JSON string of products in the category</returns>
