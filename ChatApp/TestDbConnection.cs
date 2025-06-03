@@ -31,12 +31,14 @@ public static class TestDbConnection
         TestSemanticKernelRegistration();
         
         Console.WriteLine("\n=== User Experience Tests ===");
-        Console.WriteLine("✓ Added safeguard: Application will exit after 3 consecutive invalid attempts");
-        Console.WriteLine("✓ Counter resets when valid input is provided");
-        Console.WriteLine("✓ Users get clear feedback with attempt count (e.g., '1/3', '2/3', '3/3')");
+        ShowUserExperienceInfo();
     }
     
-    private static void TestDatabaseConnection()
+    /// <summary>
+    /// Tests basic database connectivity to Northwind.db
+    /// </summary>
+    /// <returns>True if connection successful</returns>
+    public static bool TestDatabaseConnection()
     {
         try
         {
@@ -47,15 +49,22 @@ public static class TestDbConnection
             if (canConnect)
             {
                 Console.WriteLine($"  Database path: {db.Database.GetConnectionString()}");
+                return true;
             }
+            return false;
         }
         catch (Exception ex)
         {
             Console.WriteLine($"✗ Database connection FAILED: {ex.Message}");
+            return false;
         }
     }
     
-    private static void TestCategoryCount()
+    /// <summary>
+    /// Tests category count and lists available categories
+    /// </summary>
+    /// <returns>True if categories found successfully</returns>
+    public static bool TestCategoryCount()
     {
         try
         {
@@ -63,17 +72,27 @@ public static class TestDbConnection
             int categoryCount = db.Categories.Count();
             Console.WriteLine($"✓ Categories found: {categoryCount}");
             
-            // List all category names
-            var categories = db.Categories.Select(c => c.CategoryName).ToList();
-            Console.WriteLine($"  Available categories: {string.Join(", ", categories)}");
+            if (categoryCount > 0)
+            {
+                // List all category names
+                var categories = db.Categories.Select(c => c.CategoryName).ToList();
+                Console.WriteLine($"  Available categories: {string.Join(", ", categories)}");
+                return true;
+            }
+            return false;
         }
         catch (Exception ex)
         {
             Console.WriteLine($"✗ Category count FAILED: {ex.Message}");
+            return false;
         }
     }
     
-    private static void TestGetProductsInCategory()
+    /// <summary>
+    /// Tests GetProductsInCategory functionality with sample data
+    /// </summary>
+    /// <returns>True if products retrieved successfully</returns>
+    public static bool TestGetProductsInCategory()
     {
         try
         {
@@ -90,7 +109,7 @@ public static class TestDbConnection
             if (category == null)
             {
                 Console.WriteLine($"  ⚠ Category '{categoryName}' not found");
-                return;
+                return false;
             }
             
             var products = db.Products
@@ -116,16 +135,23 @@ public static class TestDbConnection
                 string jsonString = JsonSerializer.Serialize(products.Take(2), jsonOptions);
                 Console.WriteLine($"  Sample products (first 2):\n{jsonString}");
                 Console.WriteLine("✓ GetProductsInCategory function works correctly");
+                return true;
             }
+            return false;
         }
         catch (Exception ex)
         {
             Console.WriteLine($"✗ GetProductsInCategory FAILED: {ex.Message}");
             Console.WriteLine($"  Stack trace: {ex.StackTrace}");
+            return false;
         }
     }
     
-    private static void TestChatFunction()
+    /// <summary>
+    /// Tests the actual chat function via reflection
+    /// </summary>
+    /// <returns>True if chat function works correctly</returns>
+    public static bool TestChatFunction()
     {
         try
         {
@@ -140,7 +166,7 @@ public static class TestDbConnection
             if (method == null)
             {
                 Console.WriteLine("✗ GetProductsInCategory method not found");
-                return;
+                return false;
             }
             
             string result = (string)method.Invoke(null, new object[] { categoryName })!;
@@ -162,24 +188,32 @@ public static class TestDbConnection
                     // Show a preview of the JSON
                     string preview = result.Length > 200 ? result.Substring(0, 200) + "..." : result;
                     Console.WriteLine($"  JSON preview: {preview}");
+                    return true;
                 }
                 else
                 {
                     Console.WriteLine("✗ Result is not a JSON array");
+                    return false;
                 }
             }
             else
             {
                 Console.WriteLine("✗ Function returned empty result");
+                return false;
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"✗ ChatFunction test FAILED: {ex.Message}");
+            return false;
         }
     }
     
-    private static void TestSemanticKernelRegistration()
+    /// <summary>
+    /// Tests Semantic Kernel function registration
+    /// </summary>
+    /// <returns>True if function registration works</returns>
+    public static bool TestSemanticKernelRegistration()
     {
         try
         {
@@ -199,7 +233,7 @@ public static class TestDbConnection
             if (getProductsMethod == null)
             {
                 Console.WriteLine("✗ GetProductsInCategory method not found for registration");
-                return;
+                return false;
             }
             
             // Try to create a function from the method
@@ -223,15 +257,31 @@ public static class TestDbConnection
                     var param = metadata.Parameters[0];
                     Console.WriteLine($"  First parameter: {param.Name} ({param.ParameterType})");
                 }
+                return true;
             }
             else
             {
                 Console.WriteLine("✗ Failed to create function from method");
+                return false;
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"✗ Semantic Kernel registration test FAILED: {ex.Message}");
+            return false;
         }
+    }
+
+    /// <summary>
+    /// Shows user experience features and safeguards information
+    /// </summary>
+    public static void ShowUserExperienceInfo()
+    {
+        Console.WriteLine("✓ Added safeguard: Application will exit after 3 consecutive invalid attempts");
+        Console.WriteLine("✓ Counter resets when valid input is provided");
+        Console.WriteLine("✓ Users get clear feedback with attempt count (e.g., '1/3', '2/3', '3/3')");
+        Console.WriteLine("✓ Graceful handling of piped input scenarios");
+        Console.WriteLine("✓ Enhanced debug logging for function execution tracking");
+        Console.WriteLine("✓ Interactive test menu with letter-based selection");
     }
 } 

@@ -3,33 +3,6 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using ChatApp; // to use TestDbConnection
 
-// Check for command line arguments for testing
-if (args.Length > 0 && args[0] == "test")
-{
-    TestDbConnection.RunTests();
-    return; // Exit after running tests
-}
-
-// Ask user if they want to run tests first
-WriteLine("Do you want to run database connectivity tests first? (y/n): ");
-string testChoice = ReadLine()?.Trim().ToLower() ?? "";
-
-if (testChoice == "y" || testChoice == "yes")
-{
-    TestDbConnection.RunTests();
-    WriteLine("\nPress any key to continue to chat or Ctrl+C to exit...");
-    try
-    {
-        ReadKey();
-    }
-    catch (InvalidOperationException)
-    {
-        // Handle piped input case
-        Read();
-    }
-    WriteLine();
-}
-
 // Get and validate app settings
 // ==================================
 Settings? settings = GetSettings();
@@ -40,9 +13,16 @@ if (settings is null)
     return; // exit the app
 }
 
+// Get kernel
+// ==================================
 Kernel kernel = GetKernel(settings);
 
+// Handle startup operations (including tests if requested)
+// ==================================
+StartupHelper.HandleStartupChecks(args, kernel);
 
+// Get chat completion service
+// ==================================
 IChatCompletionService completion = kernel.GetRequiredService<IChatCompletionService>();
 
 // Add debug information
