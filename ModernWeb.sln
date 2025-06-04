@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebAPI.WasmClient
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "ChatApp\ChatApp.csproj", "{6D9E7403-9194-4762-86C3-1842488BCBAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OllamaApp", "OllamaApp\OllamaApp.csproj", "{321BDBAD-305C-45D7-83AF-52AE3390B049}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,18 @@ Global
 		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x64.Build.0 = Release|Any CPU
 		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x86.ActiveCfg = Release|Any CPU
 		{6D9E7403-9194-4762-86C3-1842488BCBAE}.Release|x86.Build.0 = Release|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Debug|x64.Build.0 = Debug|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Debug|x86.Build.0 = Debug|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Release|x64.ActiveCfg = Release|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Release|x64.Build.0 = Release|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Release|x86.ActiveCfg = Release|Any CPU
+		{321BDBAD-305C-45D7-83AF-52AE3390B049}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
