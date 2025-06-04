@@ -8,12 +8,19 @@ OllamaApp is a console application built with .NET 9.0 that provides functionali
 This application enables users to leverage local AI capabilities through a simple command-line interface.
 
 Example used from Tools and Skills for .NET 8 by MJ Price, p. 341 ff.
+This project was created and tested on Windows 11 only.
 
-## Prerequisites
+## Dependencies
 
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
 - [Ollama](https://ollama.ai/) installed and running locally
-- tested on Windows 11 only
+- [OllamaSharp](https://github.com/awaescher/OllamaSharp) - .NET bindings for the Ollama API
+- [Spectre.Console](https://spectreconsole.net/) - Modern console UI library for .NET
+
+OllamaSharp provides .NET bindings for the Ollama API, simplifying interactions with Ollama both locally and remotely.
+
+Spectre.Console is a .NET library designed to help developers create beautiful,
+cross-platform console applications with rich formatting, tables, progress bars, and more.
 
 ## Installation
 
