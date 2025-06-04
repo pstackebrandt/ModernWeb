@@ -38,6 +38,11 @@ dotnet run --launch-profile ChatApp
 The launch profile automatically sets environment variables defined in `launchSettings.json`,
 making it easier to run with pre-configured settings.
 
+```powershell
+dotnet run
+```
+Uses the default (or only) launch profile. This works currently but is fragile.
+
 ## Purpose
 
 Demonstrates building intelligent chat interfaces that combine traditional
