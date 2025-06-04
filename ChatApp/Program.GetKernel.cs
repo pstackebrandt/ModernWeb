@@ -1,4 +1,6 @@
 using Microsoft.SemanticKernel;
+using Microsoft.Extensions.DependencyInjection; // To use AddLogging
+using Microsoft.Extensions.Logging; // To use LogLevel
 
 /*
     This file contains the code that creates a configured Semantic Kernel instance with OpenAI chat capabilities.
@@ -21,6 +23,10 @@ partial class Program
         kernelBuilder.AddOpenAIChatCompletion(
             settings.ModelId,
             settings.OpenAISecretKey);
+
+        // Add logging and resilience
+        kernelBuilder.Services.AddLogging(c => c.AddConsole().SetMinimumLevel(LogLevel.Information));
+        kernelBuilder.Services.ConfigureHttpClientDefaults(c => c.AddStandardResilienceHandler());
 
         Kernel kernel = kernelBuilder.Build();
 
