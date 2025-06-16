@@ -1,6 +1,5 @@
 ﻿using Microsoft.SemanticKernel; // to use Kernel
 using Microsoft.SemanticKernel.ChatCompletion;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using ChatApp; // to use TestDbConnection
 using ChatApp.Extensions; // to use Kernel extensions
 
